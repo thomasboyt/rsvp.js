@@ -246,3 +246,7 @@ tom.trigger("poke");
 The example will work as expected. If you mix `RSVP.EventTarget` into a
 constructor's prototype, each instance of that constructor will get its
 own callbacks.
+
+## Building & Testing
+
+This package uses the [grunt-ember-dev](https://github.com/thomasboyt/grunt-ember-dev) package for building.
