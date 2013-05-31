@@ -4,7 +4,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-ember-dev');
 
   // Custom tasks
-  this.registerTask('test', "Runs tests through the command line using PhantomJS", ['build', 'tests', 'connect', 'mocha_phantomjs']);
+  this.registerTask('test', "Runs tests through the command line using PhantomJS", ['build', 'tests',  'mocha_phantomjs']);
 
   var config = {
     cfg: {
@@ -37,7 +37,7 @@ module.exports = function(grunt) {
     mocha_phantomjs: {
       phantom: {
         options: {
-          urls: ["http://localhost:8000/test/index.html"],
+          urls: ["test/index.html"],
         }
       }
     },
