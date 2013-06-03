@@ -3,7 +3,11 @@ module.exports = function(grunt) {
   var emberConfig = require('grunt-ember-dev').init.bind(this)(grunt);
   grunt.loadNpmTasks('grunt-ember-dev');
 
-  // Custom tasks
+  // Add concat:tests to existing tests task
+  grunt.renameTask('tests', 'microlib-tests');
+  this.registerTask('tests', "Builds the test package", ['microlib-tests', 'concat:tests']);
+
+  // Custom phantomjs test task
   this.registerTask('test', "Runs tests through the command line using PhantomJS", ['build', 'tests',  'mocha_phantomjs']);
 
   var config = {
