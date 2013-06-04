@@ -1,7 +1,7 @@
 module.exports = function(grunt) {
-  // Load Ember-Dev config & tasks
-  var emberConfig = require('grunt-ember-dev').init.bind(this)(grunt);
-  grunt.loadNpmTasks('grunt-ember-dev');
+  // Load grunt-microlib config & tasks
+  var emberConfig = require('grunt-microlib').init.bind(this)(grunt);
+  grunt.loadNpmTasks('grunt-microlib');
 
   // Add concat:tests to existing tests task
   grunt.renameTask('tests', 'microlib-tests');
