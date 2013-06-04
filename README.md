@@ -254,3 +254,4 @@ This package uses the [grunt-microlib](https://github.com/thomasboyt/grunt-micro
 Custom tasks:
 
 * `grunt node-test` - Run Mocha tests through Node (CommonJS build).
+* `grunt all-test` - Run Mocha tests through both Node and PhantomJS.

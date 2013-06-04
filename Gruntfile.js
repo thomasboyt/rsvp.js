@@ -8,10 +8,11 @@ module.exports = function(grunt) {
   this.registerTask('tests', "Builds the test package", ['microlib-tests', 'concat:tests']);
 
   // Custom phantomjs test task
-  this.registerTask('test', "Runs tests through the command line using PhantomJS", ['build', 'tests',  'mocha_phantomjs']);
-
+  this.registerTask('test', "Runs tests through the command line using PhantomJS", ['build', 'tests', 'mocha_phantomjs']);
   // Custom Node test task
   this.registerTask('node-test', ['build', 'tests', 'mochaTest']);
+
+  this.registerTask('all-test', ['build', 'tests', 'mocha_phantomjs', 'mochaTest']);
 
   var config = {
     cfg: {
@@ -51,7 +52,10 @@ module.exports = function(grunt) {
 
     mochaTest: {
       test: {
-        src: ['test/vendor/assert.js', 'test/test-adapter.js', 'tmp/promises-tests.js', 'tmp/tests.cjs.js']
+        src: ['test/vendor/assert.js', 'test/test-adapter.js', 'tmp/promises-tests.js', 'tmp/tests.cjs.js'],
+        options: {
+          reporter: 'spec'
+        },
       }
     }
   };

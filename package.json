@@ -16,7 +16,7 @@
     "grunt-mocha-test": "~0.4.0"
   },
   "scripts": {
-    "test": "grunt test",
+    "test": "grunt all-test",
     "lint": "jshint lib",
     "prepublish": "grunt build"
   },
