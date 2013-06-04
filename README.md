@@ -249,4 +249,8 @@ own callbacks.
 
 ## Building & Testing
 
-This package uses the [grunt-ember-dev](https://github.com/thomasboyt/grunt-ember-dev) package for building.
+This package uses the [grunt-microlib](https://github.com/thomasboyt/grunt-microlib) package for building.
+
+Custom tasks:
+
+* `grunt node-test` - Run Mocha tests through Node (CommonJS build).
