@@ -1,6 +1,4 @@
 /*global describe, specify, it, assert */
-import "rsvp" as RSVP;
-
 describe("RSVP extensions", function() {
   describe("self fulfillment", function(){
     it("treats self fulfillment as the recursive base case", function(done){

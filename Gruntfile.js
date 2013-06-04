@@ -10,6 +10,9 @@ module.exports = function(grunt) {
   // Custom phantomjs test task
   this.registerTask('test', "Runs tests through the command line using PhantomJS", ['build', 'tests',  'mocha_phantomjs']);
 
+  // Custom Node test task
+  this.registerTask('node-test', ['build', 'tests', 'mochaTest']);
+
   var config = {
     cfg: {
       // Name of the project
@@ -28,7 +31,7 @@ module.exports = function(grunt) {
       tests: {
         src: ['tmp/promises-tests.js', 'tmp/tests.js'],
         dest: 'tmp/all-tests.js'
-      }
+      },
     },
 
     browserify: {
@@ -45,6 +48,12 @@ module.exports = function(grunt) {
         }
       }
     },
+
+    mochaTest: {
+      test: {
+        src: ['test/vendor/assert.js', 'test/test-adapter.js', 'tmp/promises-tests.js', 'tmp/tests.cjs.js']
+      }
+    }
   };
 
   // Merge config into emberConfig, overwriting existing settings
@@ -53,4 +62,5 @@ module.exports = function(grunt) {
   // Load custom tasks from NPM
   grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-mocha-phantomjs');
+  grunt.loadNpmTasks('grunt-mocha-test');
 };
