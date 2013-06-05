@@ -3,12 +3,9 @@ module.exports = function(grunt) {
   var emberConfig = require('grunt-microlib').init.bind(this)(grunt);
   grunt.loadNpmTasks('grunt-microlib');
 
-  // Add concat:tests to existing tests task
-  grunt.renameTask('tests', 'microlib-tests');
-  this.registerTask('tests', "Builds the test package", ['microlib-tests', 'concat:tests']);
-
   // Custom phantomjs test task
   this.registerTask('test', "Runs tests through the command line using PhantomJS", ['build', 'tests', 'mocha_phantomjs']);
+
   // Custom Node test task
   this.registerTask('node-test', ['build', 'tests', 'mochaTest']);
 
@@ -28,17 +25,12 @@ module.exports = function(grunt) {
 
     pkg: grunt.file.readJSON('package.json'),
 
-    concat: {
-      tests: {
-        src: ['tmp/promises-tests.js', 'tmp/tests.js'],
-        dest: 'tmp/tests.browser.js'
-      },
-    },
-
     browserify: {
       tests: {
-        src: ['test/test-adapter.js', 'node_modules/promises-aplus-tests/lib/tests/**/*.js'],
-        dest: 'tmp/promises-tests.js'
+        src: ['test/test-adapter.js', 
+              'node_modules/promises-aplus-tests/lib/tests/**/*.js',
+              'node_modules/promises-aplus-tests/node_modules/sinon/lib/{sinon.js,sinon/*.js}'],
+        dest: 'tmp/tests-bundle.js'
       }
     },
 
