@@ -31,13 +31,13 @@ module.exports = function(grunt) {
     concat: {
       tests: {
         src: ['tmp/promises-tests.js', 'tmp/tests.js'],
-        dest: 'tmp/all-tests.js'
+        dest: 'tmp/tests.browser.js'
       },
     },
 
     browserify: {
       tests: {
-        src: ['node_modules/promises-aplus-tests/lib/tests/**/*.js'],
+        src: ['test/test-adapter.js', 'node_modules/promises-aplus-tests/lib/tests/**/*.js'],
         dest: 'tmp/promises-tests.js'
       }
     },
